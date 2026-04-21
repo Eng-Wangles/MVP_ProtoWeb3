@@ -1,0 +1,40 @@
+{
+  "stakes": [
+    {
+      "user": "0xd78C24615EAFc58F059FBe4dac973e31dDAc9ffD",
+      "amount": "1000.0",
+      "timestamp": 10685669,
+      "txHash": "0xdc8a3b44cd6345556545d54cf3f8cfc501e3271a9e92f2f3120149f201160686"
+    }
+  ],
+  "withdraws": [
+    {
+      "user": "0xd78C24615EAFc58F059FBe4dac973e31dDAc9ffD",
+      "amount": "500.0",
+      "timestamp": 10692101,
+      "txHash": "0xeaf68584d3c08681a77a46b6206c27111c62bac58ee27afa57a31be11ab9ec70"
+    }
+  ],
+  "rewards": [
+    {
+      "user": "0xd78C24615EAFc58F059FBe4dac973e31dDAc9ffD",
+      "amount": "6.666921518406666921",
+      "timestamp": 10686256,
+      "txHash": "0x2490fda29d826403ce4f43bfe6bb56eedf23cefb6509803e584036ed437ed6fe"
+    }
+  ],
+  "nftMints": [],
+  "proposals": [
+    {
+      "id": "1",
+      "description": "Reduzir a recompensa de Stake",
+      "proposer": "0xd78C24615EAFc58F059FBe4dac973e31dDAc9ffD",
+      "startTime": "1776545640",
+      "endTime": "1776804840",
+      "forVotes": "0",
+      "againstVotes": "0",
+      "status": "active"
+    }
+  ],
+  "votes": []
+}
