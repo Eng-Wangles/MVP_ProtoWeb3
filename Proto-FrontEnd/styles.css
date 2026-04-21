@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+}
+
+.wallet-info {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    border: none;
+    background: #e0e0e0;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.tab-btn:hover {
+    background: #d0d0d0;
+}
+
+.tab-btn.active {
+    background: #667eea;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5a67d8;
+}
+
+.btn-danger {
+    background: #e53e3e;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c53030;
+}
+
+.btn-success {
+    background: #48bb78;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #38a169;
+}
+
+.btn-warning {
+    background: #ed8936;
+    color: white;
+}
+
+.proposal-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.proposal-card h4 {
+    margin-bottom: 10px;
+    color: #667eea;
+}
+
+.proposal-card p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.vote-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tabs {
+        flex-direction: column;
+    }
+}
+
+/* Ranking e Activity Feed */
+
+.ranking-container, .activity-container {
+    background: #f9f9f9;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.ranking-item, .activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.ranking-item:hover, .activity-item:hover {
+    background: #f0f0f0;
+}
+
+.rank-number {
+    font-weight: bold;
+    color: #667eea;
+    width: 40px;
+}
+
+.rank-address {
+    font-family: monospace;
+    flex: 1;
+}
+
+.rank-amount {
+    font-weight: bold;
+    color: #48bb78;
+}
+
+.activity-type {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.activity-type.stake { background: #667eea; color: white; }
+.activity-type.nft { background: #ed8936; color: white; }
+.activity-type.reward { background: #48bb78; color: white; }
+
+.activity-detail {
+    flex: 1;
+    font-size: 14px;
+}
+
+.activity-time {
+    font-size: 12px;
+    color: #888;
+}

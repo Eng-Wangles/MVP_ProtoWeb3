@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo Descentralizado MVP</title>
+    <script src="ethers.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Protocolo Descentralizado MVP</h1>
+            <button id="connectWallet" class="btn-primary">Conectar MetaMask</button>
+        </header>
+
+        <div id="walletInfo" class="wallet-info" style="display: none;">
+            <p>🔗 Conectado: <span id="walletAddress"></span></p>
+            <p>🌐 Rede: <span id="networkName"></span></p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="dashboard">📊 Dashboard</button>
+            <button class="tab-btn" data-tab="token">💰 Token</button>
+            <button class="tab-btn" data-tab="nft">🖼️ NFT</button>
+            <button class="tab-btn" data-tab="staking">🔒 Staking</button>
+            <button class="tab-btn" data-tab="dao">🏛️ Governança</button>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="tab-content active">
+            <h2>📊 Estatísticas do Protocolo</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Supply</h3>
+                    <p id="totalSupply">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total em Stake</h3>
+                    <p id="totalStaked">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Propostas</h3>
+                    <p id="totalProposals">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total NFTs</h3>
+                    <p id="totalNFTs">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Preço CTB (USD)</h3>
+                    <p id="ctbPrice">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Última Atualização</h3>
+                    <p id="priceUpdate">-</p>
+                </div>
+            </div>
+
+            <h2>👤 Seus Dados</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Saldo CTB</h3>
+                    <p id="userBalance">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>NFT Member</h3>
+                    <p id="userNFT">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Em Stake</h3>
+                    <p id="userStaked">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Recompensas</h3>
+                    <p id="userRewards">-</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Token -->
+        <div id="token" class="tab-content">
+            <h2>💰 Token CTB</h2>
+            <div class="card">
+                <h3>Transferir Tokens</h3>
+                <input type="text" id="transferTo" placeholder="Endereço destino">
+                <input type="number" id="transferAmount" placeholder="Quantidade">
+                <button id="transferBtn" class="btn-primary">Transferir</button>
+            </div>
+            <div class="card">
+                <h3>Mintar Tokens (Admin)</h3>
+                <input type="text" id="mintTo" placeholder="Endereço">
+                <input type="number" id="mintAmount" placeholder="Quantidade">
+                <button id="mintBtn" class="btn-warning">Mintar</button>
+            </div>
+        </div>
+
+        <!-- NFT -->
+        <div id="nft" class="tab-content">
+            <h2>🖼️ Member NFT</h2>
+            <div class="card">
+                <h3>Mint NFT</h3>
+                <p>Preço: <strong id="mintPrice">-</strong> ETH</p>
+                <button id="mintNFTBtn" class="btn-primary">Mint NFT (0.01 ETH)</button>
+            </div>
+            <div class="card">
+                <h3>Upgrade de Nível</h3>
+                <input type="number" id="tokenId" placeholder="Token ID">
+                <select id="newLevel">
+                    <option value="1">Bronze (Nível 1)</option>
+                    <option value="2">Prata (Nível 2)</option>
+                    <option value="3">Ouro (Nível 3)</option>
+                </select>
+                <button id="upgradeBtn" class="btn-primary">Upgrade</button>
+            </div>
+	    <div class="card">
+    	    	<h3>🔄 Transferir NFT</h3>
+    	    	<input type="number" id="transferTokenId" placeholder="Token ID">
+    	    	<input type="text" id="transferToAddress" placeholder="Endereço destino">
+    	    	<button id="transferNFTBtn" class="btn-primary">Transferir NFT</button>
+	    </div>
+        </div>
+
+        <!-- Staking -->
+        <div id="staking" class="tab-content">
+            <h2>🔒 Staking CTB</h2>
+            <div class="card">
+                <h3>Fazer Stake</h3>
+                <input type="number" id="stakeAmount" placeholder="Quantidade CTB">
+                <button id="stakeBtn" class="btn-primary">Stake</button>
+            </div>
+            <div class="card">
+                <h3>Retirar Stake</h3>
+                <input type="number" id="withdrawAmount" placeholder="Quantidade CTB">
+                <button id="withdrawBtn" class="btn-danger">Retirar</button>
+            </div>
+            <div class="card">
+                <h3>Reivindicar Recompensas</h3>
+                <button id="claimBtn" class="btn-success">Claim Rewards</button>
+            </div>
+        </div>
+
+        <!-- DAO -->
+        <div id="dao" class="tab-content">
+            <h2>🏛️ Governança DAO</h2>
+            <div class="card">
+                <h3>Criar Proposta</h3>
+                <textarea id="proposalDesc" placeholder="Descrição da proposta"></textarea>
+                <input type="text" id="proposalTarget" placeholder="Contrato alvo (endereço)">
+                <button id="createProposalBtn" class="btn-primary">Criar Proposta</button>
+            </div>
+            <div id="proposalsList">
+                <h3>Propostas Ativas</h3>
+                <div id="proposals"></div>
+            </div>
+        </div>
+
+	<!-- Analytics Section -->
+	     <h2>📈 Analytics do Protocolo</h2>
+		<div class="stats-grid">
+    		<div class="stat-card">
+        		<h3>Total de Stakes</h3>
+        		<p id="analyticsTotalStakes">-</p>
+    	     </div>
+    	     <div class="stat-card">
+        	<h3>Stakers Únicos</h3>
+        	<p id="analyticsUniqueStakers">-</p>
+    	     </div>
+    	     <div class="stat-card">
+        	<h3>Total Recompensas</h3>
+        	<p id="analyticsTotalRewards">-</p>
+    	     </div>
+    	     <div class="stat-card">
+        	<h3>Média por Staker</h3>
+        	<p id="analyticsAvgStake">-</p>
+    	     </div>
+	</div>
+
+	<!-- Ranking Section -->
+	     <h2>🏆 Top Stakers</h2>
+		<div id="rankingList" class="ranking-container">
+    		<p>Carregando...</p>
+	</div>
+
+	<!-- Activity Feed -->
+	     <h2>📰 Atividade Recente</h2>
+		<div id="activityFeed" class="activity-container">
+    		<p>Carregando...</p>
+	</div>
+</div>
+
+    <script src="app.js"></script>
+    
+</body>
+</html>
