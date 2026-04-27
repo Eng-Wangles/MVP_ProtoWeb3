@@ -1,5 +1,5 @@
 const CONTRACT_ADDRESSES = {
-    ctbToken: "0x507628f8F827dF956a6aB3e6B7B017c38eF53c06",
+    ctbToken: "0xf1F66f6Bf98d7eF747f17214E5524C74D9A0ce15",
     memberNFT: "0x6111AEC6F417840BB12503fc4f879ed880f4cF0A",
     staking: "0xeeC7eEA6a4B28f8cECefAB8aE6d7d6C4a5125ba2",
     dao: "0x9442563B721797b8057CaDEE2Da9550FA4405A8E",
@@ -32,7 +32,10 @@ const ABIS = {
         "function stake(uint256 amount)",
 	"function withdraw(uint256 amount)",
         "function claimReward()",
-        "function totalStaked() view returns (uint256)"
+        "function totalStaked() view returns (uint256)",
+	"function rewardToken() view returns (address)",
+	"function stakingToken() view returns (address)",
+    	"function withdraw(uint256 amount)"
     ],
     dao: [
         "function proposalCount() view returns (uint256)",
