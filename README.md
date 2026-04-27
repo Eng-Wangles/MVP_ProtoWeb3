@@ -32,7 +32,7 @@ Este MVP reúne os principais pilares de um ecossistema Web3:
 
 | Contrato       | Endereço                                     |
 | -------------- | -------------------------------------------- |
-| **CTB Token**  | `0x507628f8F827dF956a6aB3e6B7B017c38eF53c06` |
+| **CTB Token**  | `0xf1F66f6Bf98d7eF747f17214E5524C74D9A0ce15` |
 | **Member NFT** | `0x6111AEC6F417840BB12503fc4f879ed880f4cF0A` |
 | **Staking**    | `0xeeC7eEA6a4B28f8cECefAB8aE6d7d6C4a5125ba2` |
 | **DAO**        | `0x9442563B721797b8057CaDEE2Da9550FA4405A8E` |
